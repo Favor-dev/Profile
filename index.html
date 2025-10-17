@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Immaculate Azuogu - Profile Card</title>
+  <style>
+    :root {
+      --accent: #ff69b4;
+    }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: pink;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .profile-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    h2 {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+    .profile-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+    #avatar-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffb6c1;
+      display: block;
+    }
+    .upload-label {
+      background: var(--accent);
+      color: white;
+      padding: .4rem .7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: 0.3s;
+    }
+    .upload-label:hover {
+      background: #ff4fa0;
+    }
+    #avatar-upload {
+      display: none;
+    }
+    p {
+      color: #444;
+      margin: 0.5rem 0;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* side-by-side layout */
+    .lists {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    section {
+      flex: 1;
+    }
+    section h3 {
+      color: #333;
+      margin-bottom: .5rem;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #ffb6c1;
+      display: inline-block;
+      padding-bottom: 3px;
+    }
+    section ul {
+      list-style-type: circle;
+      padding-left: 1.5rem;
+      color: #555;
+      margin-top: .4rem;
+    }
+  </style>
+</head>
+<body>
+  <article class="profile-card" data-testid="test-profile-card">
+    <h2 data-testid="test-user-name">Immaculate Azuogu</h2>
+
+    <figure class="profile-avatar">
+      <img
+        id="avatar-img"
+        data-testid="test-user-avatar"
+        src="https://via.placeholder.com/300"
+        alt="Profile photo of Immaculate Azuogu"
+      />
+      <figcaption>
+        <label for="avatar-upload" class="upload-label" tabindex="0">Change Photo</label>
+        <input id="avatar-upload" type="file" accept="image/*" aria-label="Upload profile photo" />
+      </figcaption>
+    </figure>
+
+    <p data-testid="test-user-bio">I’m an administrative assistant and aspiring data analyst.</p>
+    <p>Current time (ms): <span data-testid="test-user-time"></span></p>
+
+    <nav aria-label="Social links">
+      <ul data-testid="test-user-social-links">
+        <li>
+          <a data-testid="test-user-social-twitter" href="https://x.com/Immacul32787751/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" class="icon" alt="Twitter Icon">
+            Twitter
+          </a>      
+        </li>
+        <li>
+          <a data-testid="test-user-social-linkedin" href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://www.linkedin.com/in/immaculate-azuogu-a15b0553/" class="icon" alt="LinkedIn Icon">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a data-testid="test-user-social-github" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="icon" alt="GitHub Icon">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="lists">
+      <section>
+        <h3>Hobbies</h3>
+        <ul data-testid="test-user-hobbies">
+          <li>Reading</li>
+          <li>Web design</li>
+          <li>Learning data analysis</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Dislikes</h3>
+        <ul data-testid="test-user-dislikes">
+          <li>Messy data</li>
+          <li>Disorganization</li>
+          <li>Late deadlines</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <script>
+    // Current time
+    document.addEventListener("DOMContentLoaded", function() {
+      const timeElement = document.querySelector('[data-testid="test-user-time"]');
+      function updateTime() {
+        timeElement.textContent = Date.now();
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+    });
+
+    // Avatar upload
+    const uploadInput = document.getElementById("avatar-upload");
+    const avatarImg = document.getElementById("avatar-img");
+    const nameEl = document.querySelector("[data-testid='test-user-name']");
+
+    uploadInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          avatarImg.src = ev.target.result;
+          avatarImg.alt = `Profile photo of ${nameEl.textContent}`;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Please select an image file.");
+      }
+    });
+
+    const label = document.querySelector("label[for='avatar-upload']");
+    label.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" || ev.key === " ") {
+        ev.preventDefault();
+        uploadInput.click();
+      }
+    });
+  </script>
+</body>
+</html>
+
