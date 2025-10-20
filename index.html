@@ -67,25 +67,28 @@
       color: #444;
       margin: 0.5rem 0;
     }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    nav a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+   nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav a:hover {
+  color: deeppink;
+}
+
+
+    
     .icon {
       width: 20px;
       height: 20px;
@@ -127,6 +130,14 @@
   src="https://avatars.githubusercontent.com/u/118864223?s=400&u=cfe14d14148ac93c2f2bffd44855fecd6e517fa6&v=4" 
   alt="Profile Photo of Immaculate Azuogu" 
   data-testid="test-user-avatar">
+<nav>
+  <ul>
+    <li><a href="index.html" data-testid="test-nav-home">Home</a></li>
+    <li><a href="about.html" data-testid="test-nav-about">About</a></li>
+    <li><a href="contact.html" data-testid="test-nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
       <figcaption>
         <label for="avatar-upload" class="upload-label" tabindex="0">Change Photo</label>
         <input id="avatar-upload" type="file" accept="image/*" aria-label="Upload profile photo" />
