@@ -1,3 +1,24 @@
+# Immaculate Azuogu — Profile Project ( Stage 1)
+
+This repository contains my multi-page profile project for the Frontend Wizards / HNG Internship.  
+It showcases a Profile Card, an About Me page, and a Contact Us form with validation.
+
+## 📁 Project Structure
+- `index.html` — Home / Profile Card page  
+- `about.html` — “About Me” reflections page  
+- `contact.html` — Contact Us form  
+- `images/` — Avatar and other assets (if any)  
+
+## 🖥️ Viewing Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/favor-dev/Profile.git
+
+
+
+
+
+(Stage 0)
 # 🌸 Immaculate Azuogu — Profile Card
 
 A simple, responsive, and accessible **Profile Card** built with **HTML, CSS, and JavaScript**.  
