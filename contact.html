@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: pink;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+
+    form {
+      background: white;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: hotpink;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: deeppink;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body data-testid="test-contact-page">
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <img src="https://avatars.githubusercontent.com/u/118864223?v=4" alt="Immaculate Azuogu" data-testid="test-user-avatar">
+
+  <h2>Contact Me</h2>
+
+  <form id="contactForm" data-testid="test-contact-form">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" data-testid="test-contact-name" required>
+    <div class="error" id="error-name" data-testid="test-contact-error-name"></div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" data-testid="test-contact-email" required>
+    <div class="error" id="error-email" data-testid="test-contact-error-email"></div>
+
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" data-testid="test-contact-subject" required>
+    <div class="error" id="error-subject" data-testid="test-contact-error-subject"></div>
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="5" data-testid="test-contact-message" required></textarea>
+    <div class="error" id="error-message" data-testid="test-contact-error-message"></div>
+
+    <button type="submit" data-testid="test-contact-submit">Submit</button>
+    <div class="success" id="success" data-testid="test-contact-success"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      let isValid = true;
+      document.querySelectorAll('.error').forEach(e => e.textContent = '');
+      document.getElementById('success').textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name) {
+        document.getElementById('error-name').textContent = 'Name is required.';
+        isValid = false;
+      }
+
+      if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+        document.getElementById('error-email').textContent = 'Valid email is required.';
+        isValid = false;
+      }
+
+      if (!subject) {
+        document.getElementById('error-subject').textContent = 'Subject is required.';
+        isValid = false;
+      }
+
+      if (message.length < 10) {
+        document.getElementById('error-message').textContent = 'Message must be at least 10 characters.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        document.getElementById('success').textContent = 'Message sent successfully!';
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
