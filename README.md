@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# Immaculate Azuogu — Profile Project ( Stage 1)
+>>>>>>> 76cc8ca8d6b504a9b38bf6838c97f648f5954884
 # Immaculate Azuogu — Profile Project (Stage 0 / Stage 1)
 
 This repository contains my multi-page profile project for the Frontend Wizards / HNG Internship.  
@@ -26,6 +30,10 @@ It showcases a Profile Card, an About Me page, and a Contact Us form with valida
 
 
 
+<<<<<<< HEAD
+=======
+(Stage 0)
+>>>>>>> 76cc8ca8d6b504a9b38bf6838c97f648f5954884
 # 🌸 Immaculate Azuogu — Profile Card
 
 A simple, responsive, and accessible **Profile Card** built with **HTML, CSS, and JavaScript**.  
